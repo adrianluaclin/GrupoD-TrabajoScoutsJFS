@@ -1,0 +1,46 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="title">Página para el usuario normal</ui:define>
+    <ui:define name="content">
+        
+        <div class="n_container">
+                        
+            <h:form id="newsletter">
+                <!--   <div class="success"></div> -->
+                <div class="text1">Introduzca el usuario para ver su documentación</div>
+                <label class="email"><h:inputText value="#{controlDocumentacion.usuario}"/></label>
+           
+          
+                <c:choose>
+                            
+                     
+                    <c:when test="#{ controlDocumentacion.comprobar() !=false}">
+
+                        <div class="text1">Tipo:</div>
+                        <div> <label class="text1"><h:outputText value="#{controlDocumentacion.doc.getTipoDocumentacion()}" /></label></div>
+                        <hr></hr>
+                        <br/>
+                        <div class="text1">Nombre:</div>
+                        <div> <label class="text1"><h:outputText value="#{controlDocumentacion.doc.getNombreDocumentacion()}" /></label></div>
+                        <hr></hr>
+                        <br/>
+                        <div class="text1">Fecha:</div>
+                        <div> <label class="text1"><h:outputText value="#{controlDocumentacion.doc.getFechaDocumentacion()}" /></label></div>
+                        <hr></hr>
+                        <br/>
+                        <div class="text1">Estado:</div>
+                        <div> <label class="text1"><h:outputText value="#{controlDocumentacion.doc.getEstado()}" /></label></div>
+                        <hr></hr>
+                        <br/>
+
+                    </c:when>
+                </c:choose> 
+            </h:form>                     
+       </div>
+    </ui:define>
+</ui:composition>
+

@@ -1,0 +1,52 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                >
+    <ui:define name="title">Página para el usuario voluntario</ui:define>
+    <ui:define name="content">    
+     <c:choose>
+            <c:when test="#{controlAutorizacion.usuario.rol == 'voluntario'}">        
+                <div class="content">
+                <div class="container_12">
+                  <div class="grid_4">
+                      <div class="newsletter_title">Voluntario</div>
+                    <div class="n_container">
+
+                      <div class="clear"></div>
+                      
+                     <h:form>
+                     
+                      <h:commandButton value="Crear eventos" type="submit" action="#{tareasVoluntario.crearEventos()}"></h:commandButton>
+                      <br></br>
+                      <br></br>
+                      <h:commandButton value="Crear noticias" type="submit" action="#{tareasVoluntario.crearNoticias()}"></h:commandButton>
+                      <br></br>
+                      <br></br>
+                      <h:commandButton value="Modificar eventos" type="submit" action="#{tareasVoluntario.modificarEventos()}"></h:commandButton>
+                      <br></br>
+                      <br></br>
+                      <h:commandButton value="Modificar noticias" type="submit" action="#{tareasVoluntario.modificarNoticias()}"></h:commandButton>
+                      <br></br>
+                      <br></br>
+                      <h:commandButton value="Borrar eventos" type="submit" action="#{tareasVoluntario.borrarEventos()}"></h:commandButton>
+                      <br></br>
+                      <br></br>
+                      <h:commandButton value="Borrar noticias" type="submit" action="#{tareasVoluntario.borrarNoticias()}"></h:commandButton>
+                      </h:form>
+                    </div>
+
+                  </div>
+
+                  <div class="clear"></div>
+                </div>
+              </div>
+                  </c:when>
+            <c:otherwise>
+                <ui:include src="/WEB-INF/templates/errorAutorizacion.xhtml"/>
+            </c:otherwise>
+        </c:choose>
+    </ui:define>
+</ui:composition>
+
